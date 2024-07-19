@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Launcher.UI.Factory
+namespace Launcher.Hud
 {
 	public class Hud : MonoBehaviour
 	{

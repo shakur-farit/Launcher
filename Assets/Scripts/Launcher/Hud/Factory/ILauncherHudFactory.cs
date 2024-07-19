@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace Launcher.UI.Factory
+namespace Launcher.Hud.Factory
 {
 	public interface ILauncherHudFactory
 	{

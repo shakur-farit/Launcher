@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Launcher.UI.Factory;
+using Launcher.Hud.Factory;
 using UnityEngine;
 
 namespace Launcher.Infrastructure.States

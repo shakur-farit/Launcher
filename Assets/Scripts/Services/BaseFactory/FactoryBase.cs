@@ -23,7 +23,7 @@ namespace Services.BaseFactory
 			return ObjectsCreator.Instantiate(prefab);
 		}
 
-		protected async UniTask<LauncherAssetsReference> InitReference() =>
-			await AssetsProvider.Load<LauncherAssetsReference>(AssetsReferencesAddresses.LauncherAssetsReference);
+		protected async UniTask<T> InitReference<T>(string address) where T : class =>
+			await AssetsProvider.Load<T>(address);
 	}
 }
