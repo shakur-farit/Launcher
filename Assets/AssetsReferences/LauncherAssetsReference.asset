@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c4792538e73dc4b851d42173dc9832, type: 3}
   m_Name: LauncherAssetsReference
   m_EditorClassIdentifier: 
-  UIRootAddress: LaucnherUIRoot
+  HudAddress: LaucnherHud

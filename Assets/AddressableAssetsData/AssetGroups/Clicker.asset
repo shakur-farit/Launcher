@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 949aafd279e45ea4dbe4d4a60d30ebb6
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: a2dcc667a7992b740953e9be1e1de0fb
+    m_Address: Assets/Prefabs/Clicker/ClickerWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9b3410f411b9c04fba8217a81390e3e
+    m_Address: Assets/Prefabs/Clicker/ClickerUIRoot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f5b4734113117264491f3e4a38a9ba13, type: 2}
   m_SchemaSet:

@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 999ba05dbf9ebb549a8d80a9cc007fc0
   m_SerializeEntries:
   - m_GUID: 7149d2b3c5c74b44cb6d1b4e05ab5c5b
-    m_Address: LaucnherUIRoot
+    m_Address: LaucnherHud
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
