@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 949aafd279e45ea4dbe4d4a60d30ebb6
   m_SerializeEntries:
   - m_GUID: b9b3410f411b9c04fba8217a81390e3e
-    m_Address: ClickerUIRoot
+    m_Address: ClickerHud
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

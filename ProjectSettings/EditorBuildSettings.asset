@@ -6,10 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoaderScene.unity
+    guid: 82af99f0b9b39614da1082d8cb223f66
+  - enabled: 1
     path: Assets/Scenes/Launcher.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Clicker.unity
     guid: 2a47e6f797b6a234da4edaa371804afd
+  - enabled: 1
+    path: Assets/Scenes/Walker.unity
+    guid: 80a7693b72b67f746a7051d1dca6ef3c
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: eb96505e01ab3954e9fb7ba099c8a1b3, type: 2}

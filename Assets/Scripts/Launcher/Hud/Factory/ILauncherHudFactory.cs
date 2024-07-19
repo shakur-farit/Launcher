@@ -5,5 +5,6 @@ namespace Launcher.Hud.Factory
 	public interface ILauncherHudFactory
 	{
 		UniTask CreateHud();
+		void Destroy();
 	}
 }

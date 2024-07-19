@@ -1,12 +1,15 @@
 using Cysharp.Threading.Tasks;
-using Services.AssetsManagement;
-using Services.BaseFactory;
-using Services.ObjectsCreator;
+using Infrastructure.Services.AssetsManagement;
+using Infrastructure.Services.BaseFactory;
+using Infrastructure.Services.ObjectsCreator;
+using UnityEngine;
 
 namespace Launcher.Hud.Factory
 {
 	public class LauncherHudFactory : FactoryBase, ILauncherHudFactory
 	{
+		private GameObject _hud;
+
 		protected LauncherHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) :
 			base(assetsProvider, objectsCreator)
 		{
@@ -16,7 +19,10 @@ namespace Launcher.Hud.Factory
 		{
 			string address = AssetsReferencesAddresses.LauncherAssetsReference;
 			LauncherAssetsReference reference = await InitReference<LauncherAssetsReference>(address);
-			await CreateObject(reference.HudAddress);
+			_hud = await CreateObject(reference.HudAddress);
 		}
+
+		public void Destroy() => 
+			Object.Destroy(_hud);
 	}
 }

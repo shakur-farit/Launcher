@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6a22f913e5a1740b7035d17ae81560, type: 3}
   m_Name: ClickerAssetsReference
   m_EditorClassIdentifier: 
-  HudAddress: ClickerUIRoot
+  HudAddress: ClickerHud

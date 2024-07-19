@@ -1,6 +1,8 @@
+using Infrastructure.States;
+using Infrastructure.States.StatesMachine;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Launcher.Hud
 {
@@ -10,6 +12,12 @@ namespace Launcher.Hud
 		[SerializeField] private Button _startClickerButton;
 		[SerializeField] private Button _startWalkerButton;
 
+		private ILauncherStatesSwitcher _switcher;
+
+		[Inject]
+		public void Constructor(ILauncherStatesSwitcher switcher) => 
+			_switcher = switcher;
+
 		private void Awake()
 		{
 			_startClickerButton.onClick.AddListener(StartClicker);
@@ -17,15 +25,20 @@ namespace Launcher.Hud
 			_launcherQuitButton.onClick.AddListener(QuitLauncher);
 		}
 
-		private void StartClicker() => 
-			SceneManager.LoadSceneAsync("Clicker");
+		private void StartClicker() =>
+			_switcher.SwitchState<ClickerState>();
 
 		private void StartWalker() => 
-			SceneManager.LoadSceneAsync("Walker");
+			_switcher.SwitchState<WalkerState>();
+
 
 		private void QuitLauncher()
 		{
-			Application.Quit();
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
 		}
 	}
 }

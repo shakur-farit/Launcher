@@ -1,13 +1,16 @@
 using Cysharp.Threading.Tasks;
-using Services.AssetsManagement;
-using Services.BaseFactory;
-using Services.ObjectsCreator;
+using Infrastructure.Services.AssetsManagement;
+using Infrastructure.Services.BaseFactory;
+using Infrastructure.Services.ObjectsCreator;
+using UnityEngine;
 
 namespace Clicker.Hud.Factory
 {
 	public class ClickerHudFactory : FactoryBase, IClickerHudFactory
 	{
-		protected ClickerHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) : 
+		private GameObject _hud;
+
+		protected ClickerHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) :
 			base(assetsProvider, objectsCreator)
 		{
 		}
@@ -16,7 +19,10 @@ namespace Clicker.Hud.Factory
 		{
 			string address = AssetsReferencesAddresses.ClickerAssetsReference;
 			ClickerAssetsReference reference = await InitReference<ClickerAssetsReference>(address);
-			await CreateObject(reference.HudAddress);
+			_hud = await CreateObject(reference.HudAddress);
 		}
+
+		public void Destroy() => 
+			Object.Destroy(_hud);
 	}
 }
