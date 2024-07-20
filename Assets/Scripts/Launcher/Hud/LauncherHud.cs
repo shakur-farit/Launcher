@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Launcher.Hud
 {
-	public class Hud : MonoBehaviour
+	public class LauncherHud : MonoBehaviour
 	{
 		[SerializeField] private Button _launcherQuitButton;
 		[SerializeField] private Button _startClickerButton;
@@ -26,10 +26,10 @@ namespace Launcher.Hud
 		}
 
 		private void StartClicker() =>
-			_switcher.SwitchState<ClickerState>();
+			_switcher.SwitchStateTo<ClickerState>();
 
 		private void StartWalker() => 
-			_switcher.SwitchState<WalkerState>();
+			_switcher.SwitchStateTo<WalkerState>();
 
 
 		private void QuitLauncher()

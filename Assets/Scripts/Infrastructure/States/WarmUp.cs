@@ -20,7 +20,7 @@ namespace Infrastructure.States
 			CleanUpDictionaries();
 			InitializeAddressables();
 			await WarmUpAssets();
-			_launcherStatesSwitcher.SwitchState<LauncherState>();
+			_launcherStatesSwitcher.SwitchStateTo<LoadProgressState>();
 		}
 
 		public void Exit()

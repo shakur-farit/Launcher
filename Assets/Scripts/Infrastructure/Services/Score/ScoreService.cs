@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks;
+
 namespace Infrastructure.Services.Score
 {
 	public class ScoreService : IScoreService

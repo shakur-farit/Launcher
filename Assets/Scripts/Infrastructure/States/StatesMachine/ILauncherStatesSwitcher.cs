@@ -2,6 +2,6 @@ namespace Infrastructure.States.StatesMachine
 {
 	public interface ILauncherStatesSwitcher
 	{
-		void SwitchState<T>() where T : IState;
+		void SwitchStateTo<T>() where T : IState;
 	}
 }

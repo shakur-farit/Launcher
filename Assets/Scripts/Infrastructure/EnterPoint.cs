@@ -36,11 +36,12 @@ namespace Infrastructure
 		}
 
 		private void EnterInLoadStaticDataState() => 
-			_launcherStatesSwitcher.SwitchState<WarmUp>();
+			_launcherStatesSwitcher.SwitchStateTo<WarmUp>();
 
 		private void RegisterLauncherStates()
 		{
 			_launcherStatesRegistrar.RegisterState(_launcherStatesFactory.CreateLauncherState<WarmUp>());
+			_launcherStatesRegistrar.RegisterState(_launcherStatesFactory.CreateLauncherState<LoadProgressState>());
 			_launcherStatesRegistrar.RegisterState(_launcherStatesFactory.CreateLauncherState<LauncherState>());
 			_launcherStatesRegistrar.RegisterState(_launcherStatesFactory.CreateLauncherState<ClickerState>());
 			_launcherStatesRegistrar.RegisterState(_launcherStatesFactory.CreateLauncherState<WalkerState>());

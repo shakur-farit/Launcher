@@ -2,6 +2,8 @@ using Clicker.Hud;
 using Clicker.Hud.Factory;
 using Infrastructure.Services.AssetsManagement;
 using Infrastructure.Services.ObjectsCreator;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
 using Infrastructure.States;
@@ -24,6 +26,8 @@ namespace Installers
 			Container.Bind<IAssetsProvider>().To<AssetsProvider>().AsSingle();
 			Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
 			Container.Bind<ISceneSwitcher>().To<SceneSwitcher>().AsSingle();
+			Container.Bind<IPersistentProgressService>().To<PersistentProgressService>().AsSingle();
+			Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
 		}
 	}
 }
