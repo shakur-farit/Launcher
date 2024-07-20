@@ -2,7 +2,8 @@ namespace Infrastructure.Services.Score
 {
 	public interface IScoreService
 	{
-		int Scores { get; }
+		int CurrentScores { get; }
 		void AddScore(int amount);
+		void LoadCurrentScoreData();
 	}
 }

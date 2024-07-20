@@ -16,6 +16,7 @@ namespace Infrastructure.Services.SaveLoad
 			{
 				string json = JsonUtility.ToJson(progress);
 				File.WriteAllText(_savePath, json);
+				Debug.Log("Save");
 			}
 			catch (Exception e)
 			{

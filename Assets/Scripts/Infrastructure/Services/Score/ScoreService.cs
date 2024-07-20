@@ -1,11 +1,24 @@
-using Cysharp.Threading.Tasks;
+using Infrastructure.Services.PersistentProgress;
+using UnityEngine;
 
 namespace Infrastructure.Services.Score
 {
 	public class ScoreService : IScoreService
 	{
-		public int Scores { get; private set; }
+		private readonly IPersistentProgressService _persistentProgressService;
+
+		public int CurrentScores { get; private set; }
+
+		public ScoreService(IPersistentProgressService persistentProgressService) => 
+			_persistentProgressService = persistentProgressService;
+
 		public void AddScore(int amount) => 
-			Scores += amount;
+			CurrentScores += amount;
+
+		public void LoadCurrentScoreData()
+		{
+			CurrentScores = _persistentProgressService.Progress.ClickerData.CurrentScore;
+			Debug.Log(CurrentScores);
+		}
 	}
 }

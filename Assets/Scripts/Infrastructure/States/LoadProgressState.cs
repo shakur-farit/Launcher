@@ -2,6 +2,7 @@ using Data;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Infrastructure.States.StatesMachine;
+using UnityEngine;
 
 namespace Infrastructure.States
 {
@@ -30,8 +31,11 @@ namespace Infrastructure.States
 		{
 		}
 
-		private void InitProgress() =>
+		private void InitProgress()
+		{
+			Debug.Log(LoadProgress());
 			_persistentProgressService.Progress = LoadProgress() != null ? LoadProgress() : InitializeNewProgress();
+		}
 
 		private Progress LoadProgress() =>
 			_loadService.LoadProgress();

@@ -1,10 +1,11 @@
 using System;
+using UnityEngine.Serialization;
 
 namespace Data
 {
 	[Serializable]
 	public class ClickerData
 	{
-		public int Score;
+		[FormerlySerializedAs("Score")] public int CurrentScore;
 	}
 }

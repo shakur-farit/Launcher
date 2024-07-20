@@ -44,13 +44,13 @@ namespace Clicker.Hud
 		private void AddScore()
 		{
 			_scoreService.AddScore(ScoreToAdd);
-			_persistentProgressService.Progress.ClickerData.Score = _scoreService.Scores;
+			_persistentProgressService.Progress.ClickerData.CurrentScore = _scoreService.CurrentScores;
 
 			UpdateScoreText();
 		}
 
 		private void UpdateScoreText() => 
-			_scoreText.text = _scoreService.Scores.ToString();
+			_scoreText.text = _scoreService.CurrentScores.ToString();
 
 		private void QuitToLauncher()
 		{
