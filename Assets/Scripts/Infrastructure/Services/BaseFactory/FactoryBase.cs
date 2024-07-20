@@ -23,6 +23,13 @@ namespace Infrastructure.Services.BaseFactory
 			return ObjectsCreator.Instantiate(prefab);
 		}
 
+		protected async UniTask<GameObject> CreateObject(string objectAddress, Transform parenTransform)
+		{
+			GameObject prefab = await AssetsProvider.Load<GameObject>(objectAddress);
+
+			return ObjectsCreator.Instantiate(prefab, parenTransform);
+		}
+
 		protected async UniTask<T> InitReference<T>(string address) where T : class =>
 			await AssetsProvider.Load<T>(address);
 	}

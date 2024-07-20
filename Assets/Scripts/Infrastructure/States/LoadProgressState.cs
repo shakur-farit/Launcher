@@ -31,11 +31,8 @@ namespace Infrastructure.States
 		{
 		}
 
-		private void InitProgress()
-		{
-			Debug.Log(LoadProgress());
+		private void InitProgress() => 
 			_persistentProgressService.Progress = LoadProgress() != null ? LoadProgress() : InitializeNewProgress();
-		}
 
 		private Progress LoadProgress() =>
 			_loadService.LoadProgress();

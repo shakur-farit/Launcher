@@ -4,5 +4,6 @@ namespace Infrastructure.Services.AssetsManagement
 	{
 		public const string LauncherAssetsReference = "LauncherAssetsReference";
 		public const string ClickerAssetsReference = "ClickerAssetsReference";
+		public const string WalkerReferenceAddress = "WalkerAssetsReference";
 	}
 }

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Walker
+  m_EditorClassIdentifier: 
+  m_GroupName: Walker
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8bdb83c0edabf8e498c55758572f38fa
+  m_SerializeEntries:
+  - m_GUID: bc452787895235b4eae1bf6bfbf8bca8
+    m_Address: Character
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53745019ab6cb1045bae24c5a6552ac9
+    m_Address: WalkerHud
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 614ac08ddee6b814f96912618057d170
+    m_Address: Environment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d5cedc843d956446bef7358f36b5d4a
+    m_Address: GameCompleteWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2313fdc0a38bb2142a0307ce5d518296
+    m_Address: WalkerUIRoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b4bf1c0b9274974bba82631e854b541
+    m_Address: WalkerAssetsReference
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f5b4734113117264491f3e4a38a9ba13, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 701227ee034726f4f9a70d6cebb93842, type: 2}
+    - {fileID: 11400000, guid: 6c22446ddc94bab4f8558076ca742457, type: 2}
