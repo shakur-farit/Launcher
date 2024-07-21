@@ -1,9 +1,7 @@
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
 using Launcher.Hud.Factory;
-using UnityEngine;
 
 namespace Infrastructure.States
 {
@@ -11,14 +9,11 @@ namespace Infrastructure.States
 	{
 		private readonly ILauncherHudFactory _launcherHudFactory;
 		private readonly ISceneSwitcher _sceneSwitcher;
-		private readonly IScoreService _scoreService;
 
-		public LauncherState(ILauncherHudFactory launcherHudFactory, ISceneSwitcher sceneSwitcher, 
-			IScoreService scoreService)
+		public LauncherState(ILauncherHudFactory launcherHudFactory, ISceneSwitcher sceneSwitcher)
 		{
 			_launcherHudFactory = launcherHudFactory;
 			_sceneSwitcher = sceneSwitcher;
-			_scoreService = scoreService;
 		}
 
 		public async void Enter()

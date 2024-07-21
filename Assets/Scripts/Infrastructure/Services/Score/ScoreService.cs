@@ -15,10 +15,7 @@ namespace Infrastructure.Services.Score
 		public void AddScore(int amount) => 
 			CurrentScores += amount;
 
-		public void LoadCurrentScoreData()
-		{
+		public void LoadCurrentScoreData() => 
 			CurrentScores = _persistentProgressService.Progress.ClickerData.CurrentScore;
-			Debug.Log(CurrentScores);
-		}
 	}
 }

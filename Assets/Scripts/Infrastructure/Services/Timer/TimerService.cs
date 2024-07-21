@@ -4,14 +4,13 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Score
 {
-	public class TimerService : ITimerService
+	public class TimerService : ITimerService, ITimerFormater
 	{
 		private const int OneSecond = 1000;
 
 		private bool _isRunning;
 
 		public event Action Started;
-		public event Action Completed;
 		public event Action<int> TimeUpdated;
 
 		public int TimeElapsed { get; private set; }
@@ -28,19 +27,18 @@ namespace Infrastructure.Services.Score
 				await UniTask.Delay(OneSecond);
 				TimeElapsed++;
 				TimeUpdated?.Invoke(TimeElapsed);
-				Debug.Log(TimeElapsed);
 			}
 
-			Completed?.Invoke();
+			//Completed?.Invoke();
 		}
 
 		public void Stop() =>
 			_isRunning = false;
 
-		public string GetFormattedTime()
+		public string GetFormattedTime(int currentTime)
 		{
-			int minutes = TimeElapsed / 60;
-			int seconds = TimeElapsed % 60;
+			int minutes = currentTime / 60;
+			int seconds = currentTime % 60;
 			return $"{minutes:D2}:{seconds:D2}";
 		}
 	}

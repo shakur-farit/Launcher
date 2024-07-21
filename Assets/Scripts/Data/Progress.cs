@@ -6,5 +6,6 @@ namespace Data
 	public class Progress
 	{
 		public ClickerData ClickerData = new();
+		public WalkerData WalkerData = new();
 	}
 }

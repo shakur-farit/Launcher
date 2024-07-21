@@ -50,7 +50,7 @@ namespace Installers
 			Container.Bind<IWindowsService>().To<WindowsService>().AsSingle();
 			Container.Bind<IInputService>().To<InputService>().AsSingle();
 			Container.Bind<CharacterInput>().AsSingle();
-			Container.Bind<ITimerService>().To<TimerService>().AsSingle();
+			Container.BindInterfacesAndSelfTo<TimerService>().AsSingle();
 			Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
 		}
 	}

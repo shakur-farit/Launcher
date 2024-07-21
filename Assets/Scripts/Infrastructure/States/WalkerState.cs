@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
 using UnityEngine;
@@ -19,10 +20,11 @@ namespace Infrastructure.States
 		private readonly IWalkerEnvironmentFactory _environmentFactory;
 		private readonly IWalkerCharacterFactory _characterFactory;
 		private readonly ITimerService _timerService;
+		private readonly IPersistentProgressService _persistemtProgressService;
 
 		public WalkerState(IWalkerUIFactory uiFactory, ISceneSwitcher sceneSwitcher, IWalkerHudFactory hudFactory,
 			IWalkerEnvironmentFactory environmentFactory, IWalkerCharacterFactory characterFactory, 
-			ITimerService timerService)
+			ITimerService timerService, IPersistentProgressService persistemtProgressService)
 		{
 			_uiFactory = uiFactory;
 			_sceneSwitcher = sceneSwitcher;
@@ -30,10 +32,14 @@ namespace Infrastructure.States
 			_environmentFactory = environmentFactory;
 			_characterFactory = characterFactory;
 			_timerService = timerService;
+			_persistemtProgressService = persistemtProgressService;
 		}
 
 		public async void Enter()
 		{
+			Debug.Log(_persistemtProgressService.Progress.WalkerData.BestTime);
+
+
 			await SwitchScene();
 			await CreateUIRoot();
 			await CreateHud();
