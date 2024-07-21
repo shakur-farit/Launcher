@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Infrastructure.Services.SceneManagement;
+using Infrastructure.Services.Score;
 using UnityEngine;
 using Walker.Character.Factory;
 using Walker.Environment.Factory;
@@ -17,15 +18,18 @@ namespace Infrastructure.States
 		private readonly IWalkerHudFactory _hudFactory;
 		private readonly IWalkerEnvironmentFactory _environmentFactory;
 		private readonly IWalkerCharacterFactory _characterFactory;
+		private readonly ITimerService _timerService;
 
 		public WalkerState(IWalkerUIFactory uiFactory, ISceneSwitcher sceneSwitcher, IWalkerHudFactory hudFactory,
-			IWalkerEnvironmentFactory environmentFactory, IWalkerCharacterFactory characterFactory)
+			IWalkerEnvironmentFactory environmentFactory, IWalkerCharacterFactory characterFactory, 
+			ITimerService timerService)
 		{
 			_uiFactory = uiFactory;
 			_sceneSwitcher = sceneSwitcher;
 			_hudFactory = hudFactory;
 			_environmentFactory = environmentFactory;
 			_characterFactory = characterFactory;
+			_timerService = timerService;
 		}
 
 		public async void Enter()
@@ -35,7 +39,7 @@ namespace Infrastructure.States
 			await CreateHud();
 			await CreateEnvironment();
 			await CreateCharacter();
-			Debug.Log("Here");
+			await _timerService.Start();
 		}
 
 		public void Exit() => 

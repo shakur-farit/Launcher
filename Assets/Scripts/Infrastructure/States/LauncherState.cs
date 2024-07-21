@@ -23,8 +23,6 @@ namespace Infrastructure.States
 
 		public async void Enter()
 		{
-			Debug.Log(GetType());
-
 			await SwitchScene();
 
 			await CreateHud();
