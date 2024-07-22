@@ -19,7 +19,7 @@ namespace Infrastructure.States
 		{
 			CleanUpDictionaries();
 			InitializeAddressables();
-			await WarmUpAssets();
+			await WarmUpLauncherAssets();
 			_launcherStatesSwitcher.SwitchStateTo<LoadProgressState>();
 		}
 
@@ -33,10 +33,10 @@ namespace Infrastructure.States
 		private void InitializeAddressables() => 
 			_assetsProvider.Initialize();
 
-		private async UniTask WarmUpAssets()
+		private async UniTask WarmUpLauncherAssets()
 		{
 			await _assetsProvider.Load<LauncherAssetsReference>(AssetsReferencesAddresses.LauncherAssetsReference);
-			await _assetsProvider.Load<ClickerAssetsReference>(AssetsReferencesAddresses.ClickerAssetsReference);
+			await _assetsProvider.Load<WalkerAssetsReference>(AssetsReferencesAddresses.WalkerReferenceAddress);
 		}
 	}
 }

@@ -7,5 +7,6 @@ namespace Infrastructure.Services.AssetsManagement
 		void Initialize();
 		UniTask<T> Load<T>(string addressReference) where T : class;
 		void CleanUp();
+		void RemoveAsset(string addressReference);
 	}
 }

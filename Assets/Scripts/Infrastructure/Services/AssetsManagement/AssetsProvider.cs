@@ -28,6 +28,23 @@ namespace Infrastructure.Services.AssetsManagement
 			return await handle.Task;
 		}
 
+		public void RemoveAsset(string addressReference)
+		{
+			if (_completedCache.TryGetValue(addressReference, out AsyncOperationHandle completedHandle))
+			{
+				Addressables.Release(completedHandle);
+				_completedCache.Remove(addressReference);
+			}
+
+			if (_handles.TryGetValue(addressReference, out List<AsyncOperationHandle> resourceHandles))
+			{
+				foreach (var handle in resourceHandles)
+					Addressables.Release(handle);
+
+				_handles.Remove(addressReference);
+			}
+		}
+
 		public void CleanUp()
 		{
 			foreach (List<AsyncOperationHandle> resourcesHandles in _handles.Values)

@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using Clicker.Hud.Factory;
 using Cysharp.Threading.Tasks;
+using Infrastructure.Services.AssetsManagement;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
 
@@ -12,16 +14,21 @@ namespace Infrastructure.States
 		private readonly IClickerHudFactory _clickerHudFactory;
 		private readonly ISceneSwitcher _sceneSwitcher;
 		private readonly IScoreService _scoreService;
+		private readonly IAssetsProvider _assetsProvider;
 
-		public ClickerState(IClickerHudFactory clickerHudFactory, ISceneSwitcher sceneSwitcher, IScoreService scoreService)
+		public ClickerState(IClickerHudFactory clickerHudFactory, ISceneSwitcher sceneSwitcher,
+			IScoreService scoreService, IAssetsProvider assetsProvider)
 		{
 			_clickerHudFactory = clickerHudFactory;
 			_sceneSwitcher = sceneSwitcher;
 			_scoreService = scoreService;
+			_assetsProvider = assetsProvider;
 		}
 
 		public async void Enter()
 		{
+			//await WarmUpClickerAssets();
+
 			LoadScoreData();
 
 			await SwitchScene();
@@ -29,8 +36,18 @@ namespace Infrastructure.States
 			await CreateClickerHud();
 		}
 
-		public void Exit() =>
+		private async UniTask WarmUpClickerAssets() => 
+			await _assetsProvider.Load<ClickerAssetsReference>(AssetsReferencesAddresses.ClickerAssetsReference);
+
+		public async void Exit()
+		{
 			DestroyClickerHud();
+
+			ClickerAssetsReference reference = await _assetsProvider.Load<ClickerAssetsReference>(AssetsReferencesAddresses.ClickerAssetsReference);
+
+			_assetsProvider.RemoveAsset(reference.HudAddress);
+			_assetsProvider.RemoveAsset(AssetsReferencesAddresses.ClickerAssetsReference);
+		}
 
 		private void LoadScoreData() => 
 			_scoreService.LoadCurrentScoreData();

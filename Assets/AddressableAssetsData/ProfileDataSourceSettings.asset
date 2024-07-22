@@ -33,12 +33,35 @@ MonoBehaviour:
       m_Value: https://76bd108f-cfee-4904-bf13-d93758df3d07.client-api.unity3dusercontent.com/client_api/v1/environments/{CcdManager.EnvironmentName}/buckets/{CcdManager.BucketId}/release_by_badge/{CcdManager.Badge}/entry_by_path/content/?path=
     - m_Suffix: EnvironmentName
       m_Value: production
+  - m_GroupTypePrefix: CCD.76bd108f-cfee-4904-bf13-d93758df3d07.1cd17d0a-e760-4e5b-80f0-ca1d9047a15a.61dc0f1a-c907-41b1-b522-e8b4f0092bd6.latest
+    m_Variables:
+    - m_Suffix: CcdBucketName
+      m_Value: Launcher
+    - m_Suffix: CcdBucketId
+      m_Value: 61dc0f1a-c907-41b1-b522-e8b4f0092bd6
+    - m_Suffix: CcdBadgeName
+      m_Value: latest
+    - m_Suffix: PromoteOnly
+      m_Value: False
+    - m_Suffix: Environmentname
+      m_Value: development
+    - m_Suffix: Environmentid
+      m_Value: 1cd17d0a-e760-4e5b-80f0-ca1d9047a15a
+    - m_Suffix: BuildPath
+      m_Value: CCDBuildData/1cd17d0a-e760-4e5b-80f0-ca1d9047a15a/61dc0f1a-c907-41b1-b522-e8b4f0092bd6/latest
+    - m_Suffix: LoadPath
+      m_Value: https://76bd108f-cfee-4904-bf13-d93758df3d07.client-api.unity3dusercontent.com/client_api/v1/environments/development/buckets/61dc0f1a-c907-41b1-b522-e8b4f0092bd6/release_by_badge/latest/entry_by_path/content/?path=
   environments:
   - id: 7a195609-6182-4e87-8804-a7955563e30a
     projectId: 76bd108f-cfee-4904-bf13-d93758df3d07
     projectGenesisId: 76bd108f-cfee-4904-bf13-d93758df3d07
     name: production
     isDefault: 1
+  - id: 1cd17d0a-e760-4e5b-80f0-ca1d9047a15a
+    projectId: 76bd108f-cfee-4904-bf13-d93758df3d07
+    projectGenesisId: 76bd108f-cfee-4904-bf13-d93758df3d07
+    name: development
+    isDefault: 0
   currentEnvironment:
     id: 
     projectId: 
