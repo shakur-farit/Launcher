@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 9b99c3a4f0a7c694c9c061782b639d4b
   m_currentHash:
     serializedVersion: 2
-    Hash: eac954b8ffc1cdcfd06051f619740bdd
+    Hash: 50ac16d7c596f278d8737fe2af01aa72
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -96,12 +96,6 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
-    - WalkerGameObject
-    - WalkerAssetsReference
-    - LauncherGameObject
-    - ClickerrGameObject
-    - LauncherAssetsReference
-    - ClickerAssetsReference
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: ff972b55fa3b93446a046b5516cdb47f, type: 2}
@@ -120,7 +114,8 @@ MonoBehaviour:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
     m_NextInstanceId: 0
-    m_RegisteredServiceTypeRefs: []
+    m_RegisteredServiceTypeRefs:
+    - UnityEditor.AddressableAssets.HostingServices.HttpHostingService, Unity.Addressables.Editor
     m_PingTimeoutInMilliseconds: 5000
   m_CcdManagedData:
     EnvironmentId: 

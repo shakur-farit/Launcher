@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -28,22 +29,8 @@ namespace Infrastructure.Services.AssetsManagement
 			return await handle.Task;
 		}
 
-		public void RemoveAsset(string addressReference)
-		{
-			if (_completedCache.TryGetValue(addressReference, out AsyncOperationHandle completedHandle))
-			{
-				Addressables.Release(completedHandle);
-				_completedCache.Remove(addressReference);
-			}
-
-			if (_handles.TryGetValue(addressReference, out List<AsyncOperationHandle> resourceHandles))
-			{
-				foreach (var handle in resourceHandles)
-					Addressables.Release(handle);
-
-				_handles.Remove(addressReference);
-			}
-		}
+		public void RemoveAsset(string addressReference) => 
+			Addressables.ClearDependencyCacheAsync(addressReference);
 
 		public void CleanUp()
 		{
@@ -65,5 +52,6 @@ namespace Infrastructure.Services.AssetsManagement
 
 			resourceHandles.Add(handle);
 		}
+
 	}
 }

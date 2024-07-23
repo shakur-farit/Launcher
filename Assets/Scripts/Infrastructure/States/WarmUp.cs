@@ -36,7 +36,6 @@ namespace Infrastructure.States
 		private async UniTask WarmUpLauncherAssets()
 		{
 			await _assetsProvider.Load<LauncherAssetsReference>(AssetsReferencesAddresses.LauncherAssetsReference);
-			await _assetsProvider.Load<WalkerAssetsReference>(AssetsReferencesAddresses.WalkerReferenceAddress);
 		}
 	}
 }
