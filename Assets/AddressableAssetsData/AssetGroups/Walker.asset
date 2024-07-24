@@ -16,7 +16,32 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 8bdb83c0edabf8e498c55758572f38fa
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1b4bf1c0b9274974bba82631e854b541
+    m_Address: Assets/AssetsReferences/WalkerAssetsReference.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53745019ab6cb1045bae24c5a6552ac9
+    m_Address: Assets/Prefabs/WalkerHud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2313fdc0a38bb2142a0307ce5d518296
+    m_Address: Assets/Prefabs/WalkerUIRoot.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 614ac08ddee6b814f96912618057d170
+    m_Address: Assets/Prefabs/Environment.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d5cedc843d956446bef7358f36b5d4a
+    m_Address: Assets/Prefabs/GameCompleteWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f5b4734113117264491f3e4a38a9ba13, type: 2}
   m_SchemaSet:
