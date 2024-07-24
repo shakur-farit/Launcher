@@ -2,6 +2,7 @@ using System;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Infrastructure.Services.Score;
+using Infrastructure.Services.Timer;
 using Infrastructure.States;
 using Infrastructure.States.StatesMachine;
 using TMPro;

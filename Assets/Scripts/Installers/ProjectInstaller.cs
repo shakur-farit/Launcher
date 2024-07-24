@@ -1,10 +1,12 @@
 using Clicker.Hud.Factory;
 using Infrastructure.Services.AssetsManagement;
+using Infrastructure.Services.Input;
 using Infrastructure.Services.ObjectsCreator;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
+using Infrastructure.Services.Timer;
 using Infrastructure.States.Factory;
 using Infrastructure.States.StatesMachine;
 using Launcher.Hud.Factory;
@@ -44,6 +46,7 @@ namespace Installers
 		{
 			Container.Bind<IObjectCreatorService>().To<ObjectCreatorService>().AsSingle();
 			Container.Bind<IAssetsProvider>().To<AssetsProvider>().AsSingle();
+			Container.Bind<IAssetsReferencesHandler>().To<AssetsReferencesHandler>().AsSingle();
 			Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
 			Container.Bind<ISceneSwitcher>().To<SceneSwitcher>().AsSingle();
 			Container.Bind<IPersistentProgressService>().To<PersistentProgressService>().AsSingle();

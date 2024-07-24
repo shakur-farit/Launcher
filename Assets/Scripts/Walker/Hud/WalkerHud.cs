@@ -1,5 +1,6 @@
 using System;
 using Infrastructure.Services.Score;
+using Infrastructure.Services.Timer;
 using TMPro;
 using UnityEngine;
 using Zenject;

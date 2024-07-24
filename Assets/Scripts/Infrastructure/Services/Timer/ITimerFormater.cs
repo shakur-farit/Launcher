@@ -1,4 +1,4 @@
-namespace Infrastructure.Services.Score
+namespace Infrastructure.Services.Timer
 {
 	public interface ITimerFormater
 	{

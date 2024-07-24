@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 
-namespace Infrastructure.Services.Score
+namespace Infrastructure.Services.Timer
 {
 	public interface ITimerService
 	{

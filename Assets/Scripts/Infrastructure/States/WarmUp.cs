@@ -8,11 +8,13 @@ namespace Infrastructure.States
 	{
 		private readonly IAssetsProvider _assetsProvider;
 		private readonly ILauncherStatesSwitcher _launcherStatesSwitcher;
+		private readonly IAssetsReferencesHandler _handler;
 
-		public WarmUp(IAssetsProvider assetsProvider, ILauncherStatesSwitcher launcherStatesSwitcher)
+		public WarmUp(IAssetsProvider assetsProvider, ILauncherStatesSwitcher launcherStatesSwitcher, IAssetsReferencesHandler handler)
 		{
 			_assetsProvider = assetsProvider;
 			_launcherStatesSwitcher = launcherStatesSwitcher;
+			_handler = handler;
 		}
 
 		public async void Enter()
@@ -33,9 +35,9 @@ namespace Infrastructure.States
 		private void InitializeAddressables() => 
 			_assetsProvider.Initialize();
 
-		private async UniTask WarmUpLauncherAssets()
-		{
-			await _assetsProvider.Load<LauncherAssetsReference>(AssetsReferencesAddresses.LauncherAssetsReference);
-		}
+		private async UniTask WarmUpLauncherAssets() =>
+			_handler.LauncherAssetsReference = await _assetsProvider.Load<LauncherAssetsReference>(
+				AssetsReferencesAddresses.LauncherAssetsReference);
 	}
+
 }

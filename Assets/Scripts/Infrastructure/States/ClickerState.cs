@@ -15,14 +15,16 @@ namespace Infrastructure.States
 		private readonly ISceneSwitcher _sceneSwitcher;
 		private readonly IScoreService _scoreService;
 		private readonly IAssetsProvider _assetsProvider;
+		private readonly IAssetsReferencesHandler _handler;
 
 		public ClickerState(IClickerHudFactory clickerHudFactory, ISceneSwitcher sceneSwitcher,
-			IScoreService scoreService, IAssetsProvider assetsProvider)
+			IScoreService scoreService, IAssetsProvider assetsProvider, IAssetsReferencesHandler handler)
 		{
 			_clickerHudFactory = clickerHudFactory;
 			_sceneSwitcher = sceneSwitcher;
 			_scoreService = scoreService;
 			_assetsProvider = assetsProvider;
+			_handler = handler;
 		}
 
 		public async void Enter()
@@ -36,8 +38,9 @@ namespace Infrastructure.States
 			await CreateClickerHud();
 		}
 
-		private async UniTask WarmUpClickerAssets() => 
-			await _assetsProvider.Load<ClickerAssetsReference>(AssetsReferencesAddresses.ClickerAssetsReference);
+		private async UniTask WarmUpClickerAssets() =>
+			_handler.ClickerAssetsReference = await _assetsProvider.Load<ClickerAssetsReference>(
+				AssetsReferencesAddresses.ClickerAssetsReference);
 
 		public async void Exit()
 		{

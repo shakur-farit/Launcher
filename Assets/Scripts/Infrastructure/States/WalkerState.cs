@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
+using Infrastructure.Services.Timer;
 using UnityEngine;
 using Walker.Character.Factory;
 using Walker.Environment.Factory;

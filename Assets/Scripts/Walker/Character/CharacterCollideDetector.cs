@@ -1,3 +1,4 @@
+using Infrastructure.Services.Timer;
 using UnityEngine;
 using Walker.Hud.Factory;
 using Walker.UI.Service;

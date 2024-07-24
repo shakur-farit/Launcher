@@ -1,8 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
-namespace Infrastructure.Services.Score
+namespace Infrastructure.Services.Timer
 {
 	public class TimerService : ITimerService, ITimerFormater
 	{

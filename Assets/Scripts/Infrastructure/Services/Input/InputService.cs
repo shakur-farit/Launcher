@@ -1,9 +1,7 @@
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Infrastructure.Services.Score
+namespace Infrastructure.Services.Input
 {
 	public class InputService : IInputService
 	{

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Infrastructure.Services.Score
+namespace Infrastructure.Services.Input
 {
 	public interface IInputService
 	{
