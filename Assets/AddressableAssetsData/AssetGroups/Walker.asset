@@ -18,27 +18,32 @@ MonoBehaviour:
   m_GUID: 8bdb83c0edabf8e498c55758572f38fa
   m_SerializeEntries:
   - m_GUID: 1b4bf1c0b9274974bba82631e854b541
-    m_Address: Assets/AssetsReferences/WalkerAssetsReference.asset
+    m_Address: WalkerAssetsReference
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53745019ab6cb1045bae24c5a6552ac9
-    m_Address: Assets/Prefabs/WalkerHud.prefab
+    m_Address: WalkerHud
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2313fdc0a38bb2142a0307ce5d518296
-    m_Address: Assets/Prefabs/WalkerUIRoot.prefab
+    m_Address: WalkerUIRoot
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 614ac08ddee6b814f96912618057d170
-    m_Address: Assets/Prefabs/Environment.prefab
+    m_Address: Environment
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d5cedc843d956446bef7358f36b5d4a
-    m_Address: Assets/Prefabs/GameCompleteWindow.prefab
+    m_Address: GameCompleteWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc452787895235b4eae1bf6bfbf8bca8
+    m_Address: Character
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

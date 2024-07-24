@@ -29,7 +29,7 @@ namespace Infrastructure.States
 
 		public async void Enter()
 		{
-			await WarmUpClickerAssets();
+			//await WarmUpClickerAssets();
 
 			LoadScoreData();
 

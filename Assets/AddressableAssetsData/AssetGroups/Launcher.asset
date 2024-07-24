@@ -17,13 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 999ba05dbf9ebb549a8d80a9cc007fc0
   m_SerializeEntries:
-  - m_GUID: b387664ece9098c45a8e8b85e00bb65d
-    m_Address: Assets/AssetsReferences/LauncherAssetsReference.asset
+  - m_GUID: 7149d2b3c5c74b44cb6d1b4e05ab5c5b
+    m_Address: LaucnherHud
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7149d2b3c5c74b44cb6d1b4e05ab5c5b
-    m_Address: Assets/Prefabs/LaucnherHud.prefab
+  - m_GUID: b387664ece9098c45a8e8b85e00bb65d
+    m_Address: LauncherAssetsReference
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
