@@ -9,12 +9,11 @@ namespace Launcher.Hud.Factory
 	public class LauncherHudFactory : FactoryBase, ILauncherHudFactory
 	{
 		private GameObject _hud;
-		private readonly IAssetsReferencesHandler _handler;
 
-		protected LauncherHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator, IAssetsReferencesHandler handler) :
-			base(assetsProvider, objectsCreator)
+		protected LauncherHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator, 
+			IAssetsReferencesHandler handler) :
+			base(assetsProvider, objectsCreator, handler)
 		{
-			_handler = handler;
 		}
 
 		public async UniTask CreateHud()
@@ -22,7 +21,7 @@ namespace Launcher.Hud.Factory
 			//string address = AssetsReferencesAddresses.LauncherAssetsReference;
 			//LauncherAssetsReference reference = await InitReference<LauncherAssetsReference>(address);
 
-			LauncherAssetsReference reference = _handler.LauncherAssetsReference;
+			LauncherAssetsReference reference = Handler.LauncherAssetsReference;
 
 			if (reference == null)
 			{

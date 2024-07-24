@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Infrastructure.Services.AssetsManagement;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using Infrastructure.Services.Score;
@@ -22,10 +23,13 @@ namespace Infrastructure.States
 		private readonly IWalkerCharacterFactory _characterFactory;
 		private readonly ITimerService _timerService;
 		private readonly IPersistentProgressService _persistemtProgressService;
+		private readonly IAssetsReferencesHandler _handler;
+		private readonly IAssetsProvider _assetsProvider;
 
 		public WalkerState(IWalkerUIFactory uiFactory, ISceneSwitcher sceneSwitcher, IWalkerHudFactory hudFactory,
 			IWalkerEnvironmentFactory environmentFactory, IWalkerCharacterFactory characterFactory, 
-			ITimerService timerService, IPersistentProgressService persistemtProgressService)
+			ITimerService timerService, IPersistentProgressService persistemtProgressService,
+			IAssetsReferencesHandler handler, IAssetsProvider assetsProvider)
 		{
 			_uiFactory = uiFactory;
 			_sceneSwitcher = sceneSwitcher;
@@ -34,6 +38,8 @@ namespace Infrastructure.States
 			_characterFactory = characterFactory;
 			_timerService = timerService;
 			_persistemtProgressService = persistemtProgressService;
+			_handler = handler;
+			_assetsProvider = assetsProvider;
 		}
 
 		public async void Enter()
@@ -42,10 +48,12 @@ namespace Infrastructure.States
 
 
 			await SwitchScene();
+			await WarmUpWalkerAssets();
 			await CreateUIRoot();
 			await CreateHud();
 			await CreateEnvironment();
 			await CreateCharacter();
+
 			await _timerService.Start();
 		}
 
@@ -66,6 +74,10 @@ namespace Infrastructure.States
 
 		private async UniTask CreateCharacter() => 
 			await _characterFactory.CreateCharacter();
+
+		private async UniTask WarmUpWalkerAssets() =>
+			_handler.WalkerAssetsReference= await _assetsProvider.Load<WalkerAssetsReference>(
+				AssetsReferencesAddresses.WalkerReferenceAddress);
 
 		private void DestroyObjects()
 		{

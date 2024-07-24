@@ -9,12 +9,10 @@ namespace Clicker.Hud.Factory
 	public class ClickerHudFactory : FactoryBase, IClickerHudFactory
 	{
 		private GameObject _hud;
-		private readonly IAssetsReferencesHandler _handler;
 
 		protected ClickerHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator, IAssetsReferencesHandler handler) :
-			base(assetsProvider, objectsCreator)
+			base(assetsProvider, objectsCreator, handler)
 		{
-			_handler = handler;
 		}
 
 		public async UniTask CreateHud()
@@ -22,7 +20,7 @@ namespace Clicker.Hud.Factory
 			//string address = AssetsReferencesAddresses.ClickerAssetsReference;
 			//ClickerAssetsReference reference = await InitReference<ClickerAssetsReference>(address);
 
-			ClickerAssetsReference reference = _handler.ClickerAssetsReference;
+			ClickerAssetsReference reference = Handler.ClickerAssetsReference;
 
 			if (reference == null)
 			{

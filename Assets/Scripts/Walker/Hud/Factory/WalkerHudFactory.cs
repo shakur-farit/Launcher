@@ -10,15 +10,22 @@ namespace Walker.Hud.Factory
 	{
 		private GameObject _hud;
 
-		protected WalkerHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) : 
-			base(assetsProvider, objectsCreator)
+		protected WalkerHudFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator,
+			IAssetsReferencesHandler handler) : 
+			base(assetsProvider, objectsCreator, handler)
 		{
 		}
 
 		public async UniTask CreateHud()
 		{
-			string address = AssetsReferencesAddresses.WalkerReferenceAddress;
-			WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+			//string address = AssetsReferencesAddresses.WalkerReferenceAddress;
+			//WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+
+			WalkerAssetsReference reference = Handler.WalkerAssetsReference;
+
+			if (reference == null)
+				return;
+
 			_hud = await CreateObject(reference.HudAddress);
 		}
 

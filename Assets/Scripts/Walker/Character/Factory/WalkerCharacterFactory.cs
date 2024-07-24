@@ -10,15 +10,21 @@ namespace Walker.Character.Factory
 	{
 		private GameObject _character;
 
-		protected WalkerCharacterFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) : 
-			base(assetsProvider, objectsCreator)
+		protected WalkerCharacterFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator, 
+			IAssetsReferencesHandler handler) : 
+			base(assetsProvider, objectsCreator, handler)
 		{
 		}
 
 		public async UniTask CreateCharacter()
 		{
-			string address = AssetsReferencesAddresses.WalkerReferenceAddress;
-			WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+			//string address = AssetsReferencesAddresses.WalkerReferenceAddress;
+			//WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+			WalkerAssetsReference reference = Handler.WalkerAssetsReference;
+			
+			if (reference == null)
+				return;
+
 			_character = await CreateObject(reference.CharacterAddress);
 		}
 

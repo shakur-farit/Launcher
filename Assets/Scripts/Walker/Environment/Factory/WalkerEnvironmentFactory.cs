@@ -10,16 +10,22 @@ namespace Walker.Environment.Factory
 	{
 		private GameObject _environment;
 
-
-		protected WalkerEnvironmentFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) : 
-			base(assetsProvider, objectsCreator)
+		protected WalkerEnvironmentFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator,
+			IAssetsReferencesHandler handler) : 
+			base(assetsProvider, objectsCreator, handler)
 		{
 		}
 
 		public async UniTask CreateEnvironment()
 		{
-			string address = AssetsReferencesAddresses.WalkerReferenceAddress;
-			WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+			//string address = AssetsReferencesAddresses.WalkerReferenceAddress;
+			//WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+
+			WalkerAssetsReference reference = Handler.WalkerAssetsReference;
+
+			if (reference == null)
+				return;
+
 			_environment = await CreateObject(reference.EnvironmentAddress);
 		}
 

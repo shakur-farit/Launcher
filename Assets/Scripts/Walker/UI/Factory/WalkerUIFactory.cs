@@ -11,27 +11,41 @@ namespace Walker.UI.Factory
 	{
 		private GameObject _uiRoot;
 		private GameObject _gameCompleteWindow;
+		private WalkerAssetsReference _reference;
 
-		protected WalkerUIFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator) : 
-			base(assetsProvider, objectsCreator)
+		protected WalkerUIFactory(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator,
+			IAssetsReferencesHandler handler) : 
+			base(assetsProvider, objectsCreator, handler)
 		{
+			InitReference();
 		}
 
 		public async UniTask CreateUIRoot()
 		{
-			string address = AssetsReferencesAddresses.WalkerReferenceAddress;
-			WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
-			_uiRoot = await CreateObject(reference.UIRoot);
+			//string address = AssetsReferencesAddresses.WalkerReferenceAddress;
+			//WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+
+			if (_reference == null)
+				return;
+
+			_uiRoot = await CreateObject(_reference.UIRoot);
 		}
 
 		public async UniTask CreateGameCompleteWindow()
 		{
-			string address = AssetsReferencesAddresses.WalkerReferenceAddress;
-			WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
-			_gameCompleteWindow = await CreateObject(reference.GameCompleteWindow, _uiRoot.transform);
+			//string address = AssetsReferencesAddresses.WalkerReferenceAddress;
+			//WalkerAssetsReference reference = await InitReference<WalkerAssetsReference>(address);
+
+			if (_reference == null)
+				return;
+
+			_gameCompleteWindow = await CreateObject(_reference.GameCompleteWindow, _uiRoot.transform);
 		}
 
 		public void DestroyUIRoot() => 
 			Object.Destroy(_uiRoot);
+
+		private void InitReference() => 
+			_reference = Handler.WalkerAssetsReference;
 	}
 }

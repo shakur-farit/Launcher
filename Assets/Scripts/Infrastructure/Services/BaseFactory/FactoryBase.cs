@@ -9,11 +9,13 @@ namespace Infrastructure.Services.BaseFactory
 	{
 		protected readonly IAssetsProvider AssetsProvider;
 		protected readonly IObjectCreatorService ObjectsCreator;
+		protected readonly IAssetsReferencesHandler Handler;
 
-		protected FactoryBase(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator)
+		protected FactoryBase(IAssetsProvider assetsProvider, IObjectCreatorService objectsCreator, IAssetsReferencesHandler handler)
 		{
 			AssetsProvider = assetsProvider;
 			ObjectsCreator = objectsCreator;
+			Handler = handler;
 		}
 
 		protected async UniTask<GameObject> CreateObject(string objectAddress)
@@ -30,7 +32,7 @@ namespace Infrastructure.Services.BaseFactory
 			return ObjectsCreator.Instantiate(prefab, parenTransform);
 		}
 
-		protected async UniTask<T> InitReference<T>(string address) where T : class =>
-			await AssetsProvider.Load<T>(address);
+		//protected async UniTask<T> InitReference<T>(string address) where T : class =>
+		//	await AssetsProvider.Load<T>(address);
 	}
 }
